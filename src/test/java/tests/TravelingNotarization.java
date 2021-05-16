@@ -1,6 +1,9 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.RemoteNotarizationPage;
+import pages.TravelingNotarizationPage;
 
 public class TravelingNotarization extends TestBase{
 
@@ -17,11 +20,12 @@ know one ..... ????
 
 
     @Test
-    public void verifyAddress(){
-        // 1. Entering addresses (Jira ticket 1)
-
+    public void verifyTN_Page(){
+    // 1. Entering addresses (Jira ticket 1)
+        TravelingNotarizationPage rn = new TravelingNotarizationPage();
+        rn.enterTN_Page();
+        Assert.assertTrue(driver.getTitle().contains("Traveling"));
     }
-
 
 
     @Test

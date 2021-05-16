@@ -12,7 +12,7 @@ public class LoginPage {
 
     // PAGE OBJECT MODEL
     public LoginPage(){
-        PageFactory.initElements(Driver.getDriver(), this);  // PageFactory class is used to initialize the variables of the page class
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     //Page classes can contain variables and methods that deal with actions on the UI
@@ -34,6 +34,8 @@ public class LoginPage {
 
 
 
+
+
     public void login(){
         menuButton.click();
         userName.sendKeys("janagrit@gmail.com");
@@ -42,5 +44,8 @@ public class LoginPage {
         loginButton.click();
 
     }
+
+
+
 
 }
