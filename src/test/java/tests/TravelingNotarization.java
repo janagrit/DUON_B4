@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.RemoteNotarizationPage;
 import pages.TravelingNotarizationPage;
@@ -18,64 +19,16 @@ know one ..... ????
      */
 
 
+    @BeforeMethod(alwaysRun = true)
+    public void homepage() {
+        TravelingNotarizationPage rn = new TravelingNotarizationPage();
+        rn.enterTravelingNotarizationPage();
+    }
 
     @Test
     public void verifyTN_Page(){
-    // 1. Entering addresses (Jira ticket 1)
-        TravelingNotarizationPage rn = new TravelingNotarizationPage();
-        rn.enterTN_Page();
         Assert.assertTrue(driver.getTitle().contains("Traveling"));
     }
-
-
-    @Test
-    public void Order_info(){
-        // 2.---- (Jira ticket 2)
-
-    }
-
-    @Test
-    public void Real_Estate_Refinance(){
-        // 3. --- (Jira ticket 3)
-
-    }
-
-
-
-    @Test
-    public void Notary_Public(){
-        // 4. ----- (Jira ticket 4)
-
-    }
-
-    @Test
-    public void I_9Verification(){
-        // 5. ---- (Jira ticket 5)
-
-    }
-
-    @Test
-    public void Embassy_Legalization(){
-        // 6. --- (Jira ticket 6)
-
-    }
-
-    @Test
-    public void Data_Time(){
-        // 7. --- (Jira ticket 7)
-
-    }
-
-    @Test
-    public void User_info() {
-        // 8. ----(Jira ticket 8)
-        }
-
-        @Test
-        public void Payment () {
-            // 9. --- (Jira ticket 9)
-
-        }
 
 
     }

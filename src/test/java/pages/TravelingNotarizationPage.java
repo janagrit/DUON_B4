@@ -11,12 +11,16 @@ public class TravelingNotarizationPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+
     @FindBy (xpath = "//h4[.='Traveling notarization']")
-    public WebElement enterT_N;
+    public WebElement travelingNotarizationClick;
 
 
-    public void enterTN_Page(){
-    enterT_N.click(); }
-
-
+    public void enterTravelingNotarizationPage(){
+        travelingNotarizationClick.click();
     }
+
+
+    public static class OrderInfoPage {
+    }
+}

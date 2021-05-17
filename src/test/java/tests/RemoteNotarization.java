@@ -1,6 +1,8 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -27,23 +29,31 @@ public class RemoteNotarization extends TestBase{
     public void Entering_Schedule_Page(){
         // 2. Entering Now Page of Remote Notarization (Jira ticket 2)
         RemoteNotarizationPage rn = new RemoteNotarizationPage();
-        rn.enterRemoteNotorization();
+        rn.enterNotorization_Scheduled();
+        Assert.assertTrue(driver.getTitle().equals("Online (remote) notary services - RON | DuoNotary"));
     }
 
 
 
-//    @Test
-//    public void Notary_Public(){
-//        // 4. ----- (Jira ticket 4)
-//
-//    }
-//
-//    @Test
-//    public void I_9Verification(){
-//        // 5. ---- (Jira ticket 5)
-//
-//    }
-//
+    @Test
+    public void Order_Info(){
+        // 3. ----- (Jira ticket 4 = Price Issue on the amount 12)
+        RemoteNotarizationPage rn = new RemoteNotarizationPage();
+        rn.enterNotorization_Scheduled();
+        rn.titleDocMethod();
+        rn.count_amountMethod();
+        rn.uploadBottonMethod();
+        rn.checkboxMethod();
+        rn.nextButtonMethod();
+    }
+
+    @Test
+    public void Data_Time_Section(){
+        // 4. ---- (Jira ticket 5)
+        Order_Info();
+
+    }
+
 //    @Test
 //    public void Embassy_Legalization(){
 //        // 6. --- (Jira ticket 6)
