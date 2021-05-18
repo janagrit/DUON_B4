@@ -23,8 +23,17 @@ public class LoginTests extends TestBase{
     @Test (groups = "smoke", alwaysRun = true)
     public void negativeLogin(){
         // 2. login in with wrong credentials:
+
         LoginPage loginPage = new LoginPage();
-        loginPage.login();
+
+        loginPage.userName.sendKeys("WrongUsername");
+        loginPage.password.sendKeys("wrongPass");
+        loginPage.loginButton.click();
+
+        String expectedMessage = "Username or password error";
+
+        assertTrue(loginPage.errorMessage.isDisplayed());
+        assertEquals(loginPage.errorMessage.getText(), expectedMessage);
     }
 
 

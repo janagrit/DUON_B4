@@ -32,14 +32,21 @@ public class LoginPage {
     @FindBy(xpath = "//button[@class='borRad']")
     public WebElement loginButton;
 
-
+    @FindBy(id = "u44diff8yz")
+    public WebElement errorMessage;
 
 
 
     public void login(){
+//        menuButton.click();
+//        userName.sendKeys("janagrit@gmail.com");
+//        password.sendKeys("Abcde1234");
+//        keepMeLogInButton.click();
+//        loginButton.click();
+
         menuButton.click();
-        userName.sendKeys("janagrit@gmail.com");
-        password.sendKeys("Abcde1234");
+        userName.sendKeys(ConfigReader.getProperty("username"));
+        password.sendKeys(ConfigReader.getProperty("password"));
         keepMeLogInButton.click();
         loginButton.click();
 
