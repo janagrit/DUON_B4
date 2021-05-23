@@ -5,8 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.Data_TimePage;
 import pages.LoginPage;
+import pages.OrderInfoPage;
 import pages.RemoteNotarizationPage;
+import utilities.Driver;
+
+import javax.xml.crypto.Data;
+import java.util.concurrent.TimeUnit;
 
 public class RemoteNotarization extends TestBase{
 
@@ -20,14 +26,14 @@ public class RemoteNotarization extends TestBase{
 
     @Test(groups = "smoke")
     public void Entering_Now_Page(){
-        // 1. Entering Now Page of Remote Notarization (Jira ticket 2)
+        // 1. Entering Now Page of Remote Notarization (Jira ticket 1)
         RemoteNotarizationPage rn = new RemoteNotarizationPage();
         rn.enterNotorization_Now();
     }
 
     @Test(groups = "smoke")
     public void Entering_Schedule_Page(){
-        // 2. Entering Now Page of Remote Notarization (Jira ticket 3)
+        // 2. Entering Now Page of Remote Notarization (Jira ticket 2)
         RemoteNotarizationPage rn = new RemoteNotarizationPage();
         rn.enterNotorization_Scheduled();
         Assert.assertTrue(driver.getTitle().equals("Online (remote) notary services - RON | DuoNotary"));
@@ -36,8 +42,8 @@ public class RemoteNotarization extends TestBase{
 
 
     @Test
-    public void Order_Info(){
-        // 3. ----- (Jira ticket 4 = Price Issue on the amount 12)
+    public void Order_Info()  {
+        // 3. ----- (Jira ticket 3 = Price Issue on the amount 12)
         RemoteNotarizationPage rn = new RemoteNotarizationPage();
         rn.enterNotorization_Scheduled();
         rn.titleDocMethod();
@@ -45,15 +51,33 @@ public class RemoteNotarization extends TestBase{
         rn.uploadBottonMethod();
         rn.checkboxMethod();
         rn.nextButtonMethod();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
+
     }
 
     @Test
-    public void Data_Time_Section(){
-        // 4. ---- (Jira ticket 5)
+    public void Data_Time_Section() throws InterruptedException {
+        // 4. ---- (Jira ticket 4)
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Order_Info();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Data_TimePage data_time = new Data_TimePage();
+        System.out.println(data_time.titleDoc);
 
+        if(! data_time.Data.isSelected()){
+            data_time.Data.isSelected();
+        }
 
     }
+
+    @Test
+    public void User_Info_Section(){
+
+    }
+
+
 
 //    @Test
 //    public void Embassy_Legalization(){

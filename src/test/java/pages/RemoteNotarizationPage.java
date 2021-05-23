@@ -10,6 +10,7 @@ public class RemoteNotarizationPage {
 
 
     public RemoteNotarizationPage( ){
+
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -37,6 +38,11 @@ public class RemoteNotarizationPage {
 
     @FindBy(xpath = "//button[contains(text(), 'Next' )]")
     public WebElement nextButton;
+
+
+
+
+
 
     public void nextButtonMethod(){
         nextButton.click();}
