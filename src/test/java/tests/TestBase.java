@@ -34,7 +34,7 @@ public abstract class TestBase {
     public void setUpMethod(@Optional String browser){
 
         driver = Driver.getDriver(browser);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(ConfigReader.getProperty("url"));
 

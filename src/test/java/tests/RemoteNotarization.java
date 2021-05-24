@@ -27,6 +27,7 @@ public class RemoteNotarization extends TestBase{
     @Test(groups = "smoke")
     public void Entering_Now_Page(){
         // 1. Entering Now Page of Remote Notarization (Jira ticket 1)
+        logger.info("Verifying Scheduling page Now ");
         RemoteNotarizationPage rn = new RemoteNotarizationPage();
         rn.enterNotorization_Now();
     }
@@ -34,6 +35,7 @@ public class RemoteNotarization extends TestBase{
     @Test(groups = "smoke")
     public void Entering_Schedule_Page(){
         // 2. Entering Now Page of Remote Notarization (Jira ticket 2)
+        logger.info("Verifying Title");
         RemoteNotarizationPage rn = new RemoteNotarizationPage();
         rn.enterNotorization_Scheduled();
         Assert.assertTrue(driver.getTitle().equals("Online (remote) notary services - RON | DuoNotary"));
@@ -66,6 +68,8 @@ public class RemoteNotarization extends TestBase{
         Data_TimePage data_time = new Data_TimePage();
         System.out.println(data_time.titleDoc);
 
+
+        logger.info("Verifying selection of the certain day");
         if(! data_time.Data.isSelected()){
             data_time.Data.isSelected();
         }
@@ -74,7 +78,6 @@ public class RemoteNotarization extends TestBase{
 
     @Test
     public void User_Info_Section(){
-
     }
 
 
