@@ -26,9 +26,12 @@ know one ..... ????
     }
 
     @Test
+
     public void verifyTN_Page(){
+        logger.info("Verifying that Homepage contains title Traveling");
         Assert.assertTrue(driver.getTitle().contains("Traveling"));
+        logger.pass("Title Traveling is on the Homepage");
     }
 
 
-    }
+}
