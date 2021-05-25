@@ -53,7 +53,10 @@ public class RemoteNotarization extends TestBase{
         rn.uploadBottonMethod();
         rn.checkboxMethod();
         rn.nextButtonMethod();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        String title = "Online (remote) notary services - RON | DuoNotary";
+
+       // System.out.println(Driver.getDriver().getTitle());
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(title));
 
 
 
@@ -62,16 +65,16 @@ public class RemoteNotarization extends TestBase{
     @Test
     public void Data_Time_Section() throws InterruptedException {
         // 4. ---- (Jira ticket 4)
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         Order_Info();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         Data_TimePage data_time = new Data_TimePage();
         System.out.println(data_time.titleDoc);
 
 
         logger.info("Verifying selection of the certain day");
         if(! data_time.Data.isSelected()){
-            data_time.Data.isSelected();
+            data_time.Data.click();
         }
 
     }

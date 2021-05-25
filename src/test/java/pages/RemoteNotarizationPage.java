@@ -1,9 +1,11 @@
 package pages;
 
 import com.sun.deploy.cache.BaseLocalApplicationProperties;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.BrowserUtilities;
 import utilities.Driver;
 
 public class RemoteNotarizationPage {
@@ -27,7 +29,7 @@ public class RemoteNotarizationPage {
     @FindBy(id = "titleDoc")
     public WebElement titleDoc;
 
-    @FindBy(xpath = "//div[@class='count']")
+    @FindBy(xpath = "//i[@class='fas fa-plus']")
     public WebElement count_amount;
 
     @FindBy(id = "documentOnline")
@@ -45,11 +47,15 @@ public class RemoteNotarizationPage {
 
 
     public void nextButtonMethod(){
-        nextButton.click();}
+        nextButton.click();
+    }
 
     public void checkboxMethod(){
-        if(! checkbox.isSelected() )
-        checkbox.isSelected(); }
+
+        if(! checkbox.isSelected() ){
+            BrowserUtilities.jsClick(checkbox);
+        }}
+
 
     public void uploadBottonMethod(){
         uploadBotton.sendKeys("/Users/ianagrytsenko/Documents/cover.doc"); }

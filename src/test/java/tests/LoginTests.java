@@ -14,10 +14,15 @@ public class LoginTests extends TestBase{
 
 
     @Test (groups = "smoke", alwaysRun = true)
-    public void positiveLogin(){
+    public void positiveLogin() throws InterruptedException {
         // 1. login in:
         LoginPage loginPage = new LoginPage();
         loginPage.login();
+        Thread.sleep(10000);
+
+        // Verify that the login was successful
+        String expectedURL = "http://70.32.24.165/client/main-page";
+        assertEquals(driver.getCurrentUrl(), expectedURL);
     }
 
     @Test (groups = "smoke", alwaysRun = true)
@@ -25,15 +30,14 @@ public class LoginTests extends TestBase{
         // 2. login in with wrong credentials:
 
         LoginPage loginPage = new LoginPage();
+        loginPage.Negativelogin();
 
-        loginPage.userName.sendKeys("WrongUsername");
-        loginPage.password.sendKeys("wrongPass");
-        loginPage.loginButton.click();
-
+        // Verify that the login was Unsuccessful
         String expectedMessage = "Username or password error";
-
         assertTrue(loginPage.errorMessage.isDisplayed());
         assertEquals(loginPage.errorMessage.getText(), expectedMessage);
+
+
     }
 
 

@@ -25,6 +25,8 @@ public class Icon_Downloads_Test extends TestBase{
 //        iconPage.TwitterIcon.click();
 //        iconPage.instagramIcon.click();
        // System.out.println(driver.getPageSource());
+
+
         String youTube = "DuoNotary - YouTube";
         Assert.assertTrue(driver.getTitle().contains(youTube));
 

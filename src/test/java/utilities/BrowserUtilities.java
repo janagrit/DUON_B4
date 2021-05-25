@@ -201,4 +201,9 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
         js.executeScript("window.scrollBy("+horizontalAxis+","+verticalAxis+")");
     }
 
+        public static void jsClick(WebElement element) {
+            JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
+            js.executeScript("arguments[0].click();", element);
+        }
+
 }

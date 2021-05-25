@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.BrowserUtilities;
 import utilities.ConfigReader;
 import utilities.Driver;
 
@@ -32,8 +33,12 @@ public class LoginPage {
     @FindBy(xpath = "//button[@class='borRad']")
     public WebElement loginButton;
 
-    @FindBy(id = "u44diff8yz")
+    @FindBy(xpath = "//div[@role='alert']")
     public WebElement errorMessage;
+
+    @FindBy(xpath = "//button [contains(text(), 'Accept')]")
+    public WebElement CautionMessage;
+
 
 
 
@@ -44,11 +49,32 @@ public class LoginPage {
 //        keepMeLogInButton.click();
 //        loginButton.click();
 
-        menuButton.click();
+        BrowserUtilities.jsClick(menuButton);
         userName.sendKeys(ConfigReader.getProperty("username"));
         password.sendKeys(ConfigReader.getProperty("password"));
+        BrowserUtilities.jsClick(keepMeLogInButton);
+        BrowserUtilities.jsClick(loginButton);
+
+
+
+    }
+
+    public void Negativelogin(){
+        BrowserUtilities.jsClick(CautionMessage);
+        BrowserUtilities.jsClick(menuButton);
+        userName.sendKeys("janagkrit@gmail.com");
+        password.sendKeys("Abcdel1234");
         keepMeLogInButton.click();
-        loginButton.click();
+        BrowserUtilities.jsClick(loginButton);
+
+
+//        BrowserUtilities.jsClick(menuButton);
+//        userName.sendKeys(ConfigReader.getProperty("iana@gmail.com"));
+//        password.sendKeys(ConfigReader.getProperty("hioooooooooo"));
+//        BrowserUtilities.jsClick(keepMeLogInButton);
+//        BrowserUtilities.jsClick(loginButton);
+
+
 
     }
 
